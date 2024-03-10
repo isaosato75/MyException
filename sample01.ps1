@@ -52,7 +52,7 @@ try {
                     $choise_skip  = New-Object System.Management.Automation.Host.ChoiceDescription '&Skip', ('skip "{0}"' -f $target)
                     $choise_about = New-Object System.Management.Automation.Host.ChoiceDescription '&About', 'about all.'
                     
-                    $userselect = $host.ui.PromptForChoice('ERROR', ('select action for "{0}".' -f $target.Name), @($choise_retry, $choise_skip, $choise_about), 0)
+                    $userselect = $host.ui.PromptForChoice('ERROR', ('select action for "{0}".' -f $target), @($choise_retry, $choise_skip, $choise_about), 0)
                     switch($userselect) {
                         0 {'selected retry.'; throw (New-Object OperationRetryException)}
                         1 {'selected skip.';  throw (New-Object OperationSkipException)}
